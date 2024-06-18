@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6{
         font-size: 1.6rem;
         cursor: pointer;
         padding: 0.5rem 1rem;
-        font-weight: 500;
+        font-weight: bold;
         font-size: 20px;
     }
 }
@@ -68,6 +68,22 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 .text{
+    width: 50%;
+    @media (max-width: 768px){
+        width: 100%;
+    }
+    padding-left: 10px;
+}
+.project{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
+}
+.projects{
     width: 50%;
     @media (max-width: 768px){
         width: 100%;
