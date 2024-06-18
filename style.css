@@ -7,9 +7,70 @@ body{
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+}
+.menu,.contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    a{
+        text-decoration: none;
+        color: #000;
+        font-size: 1.6rem;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        font-size: 20px;
+    }
+}
+
+.menu > a:hover{
+        color: #fff;
+        background-color: #000;
+        border: #000 solid 1px;
+        border-radius: 8px;
+}
+.header{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.image > img{
+   border-radius: 25px;
+   max-width: 500px;
+   @media (max-width: 768px){
+         width: 100%;
+   }
+}
+.image{
+    align-self: center;
+    border-right: #000 solid 1px;
+    padding-right: 2rem;
+    @media (max-width: 768px){
+        border-right: none;
+        padding-right: 0;
+    }
+}
+
+.content{
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
+}
+.text{
+    width: 50%;
+    @media (max-width: 768px){
+        width: 100%;
+    }
+    padding-left: 10px;
 }
