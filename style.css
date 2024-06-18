@@ -1,5 +1,7 @@
+
 html{
     font-size: 62.5%;
+    width : 100%;
 }
 body{
     font-family: 'Roboto', sans-serif;
@@ -73,6 +75,10 @@ h1, h2, h3, h4, h5, h6{
         width: 100%;
     }
     padding-left: 10px;
+}
+.text > h3{
+    margin-top: 1rem;
+
 }
 .project{
     margin: 2rem;
