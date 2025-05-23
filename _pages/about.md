@@ -10,7 +10,7 @@ redirect_from:
   Hi, I am Rajan Bhusal. I am an MS Student at the Department of Civil Engineering, University of Hawaii at Manoa since Spring 2025. 
   I am broadly interested in the areas of transportation systems including but not limited to traffic flow theory, discrete choice models, optimization problems, reinforcement learning, deep learning, game theory and mathematical programming. 
 
-
+---
 permalink: /
 title: "Publications"
 author_profile: false
@@ -18,3 +18,10 @@ redirect_from:
   - /about/
   - /about.html
 ---
+
+  My Publications and Research Works will appear here 
+
+
+
+
+
