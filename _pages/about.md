@@ -14,3 +14,7 @@ redirect_from:
 Research
 ====== 
 I am currently working on developing transportation network models for the islands of Maui and Oahu. I am analyzing network performance under unplanned events like cyberattacks and disasters. 
+
+Timeline
+======
+  
