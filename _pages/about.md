@@ -15,6 +15,8 @@ Research
 ====== 
 I am currently working on developing transportation network models for the islands of Maui and Oahu. I am analyzing network performance under unplanned events like cyberattacks and disasters. 
 
-Timeline
+News
 ======
+* April 2023 : Graduated with a Bachelor's degree in Civil Engineering from Tribhuvan University, Nepal
+* January 2025 : Joined University of Hawaii at Manoa as an MS Student and Graduate Research Assistant
   
