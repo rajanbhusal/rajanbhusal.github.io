@@ -8,12 +8,9 @@ redirect_from:
 ---
 
   Hi, I am Rajan Bhusal. I am an MS Student at the Department of Civil Engineering, University of Hawaii at Manoa since Spring 2025. 
+  
   I am broadly interested in the areas of transportation systems including but not limited to traffic flow theory, discrete choice models, optimization problems, reinforcement learning, deep learning, game theory and mathematical programming. 
 
 Research
 ====== 
 I am currently working on developing transportation network models for the islands of Maui and Oahu. I am analyzing network performance under unplanned events like cyberattacks and disasters. 
-
-Publications
-======
-All my Publications and research works will appear here 
