@@ -22,10 +22,9 @@ repository               : ""
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
   name             : "Rajan Bhusal"
   pronouns         : # example: "she/her"  
-  bio              : ""
+  bio              : "Master's Student at the University of Hawaii at Manoa"
   location         : "Honolulu, Hawaii"
   employer         : "University of Hawaii at Manoa"
   uri              : # URL
