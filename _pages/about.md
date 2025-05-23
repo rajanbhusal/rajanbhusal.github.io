@@ -17,6 +17,6 @@ I am currently working on developing transportation network models for the islan
 
 News
 ======
-* January 2025 - Joined University of Hawaii at Manoa as an MS Student and Graduate Research Assistant
-* April 2023 - Graduated with a Bachelor's degree in Civil Engineering from Tribhuvan University, Nepal
+* == January 2025 - == Joined University of Hawaii at Manoa as an MS Student and Graduate Research Assistant
+* == April 2023 - == Graduated with a Bachelor's degree in Civil Engineering from Tribhuvan University, Nepal
   
