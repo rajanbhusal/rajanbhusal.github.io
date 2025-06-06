@@ -11,35 +11,24 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* M.S. in Civil Engineering, University of Hawaii at Manoa, 2026(Expected)
+* B.S. in Civil Engineering, Tribhuvan University,Nepal, 2023
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2025-2026: Graduate Research Assistant
+  * University of Hawaii at Manoa
+  * Duties included: Running Traffic Simulation, analysis of results and visualization, literature review and report drafting
+  * Supervisor: Professor Roger Chen
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 2022-2023: Site Engineer
+  * Midhill Highway Project, Nepal
+  * Duties included: Quality Control, Site Supervision
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python, Pytorch, Javascript, R
+* Polaris - Traffic Simulation Tool, QGIS
 
 Publications
 ======
@@ -61,4 +50,4 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* 
