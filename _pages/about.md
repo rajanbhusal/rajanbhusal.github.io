@@ -9,7 +9,7 @@ redirect_from:
 
 👋 Hi, I am Rajan Bhusal. I am an MS Student at the [Department of Civil Engineering, University of Hawaii at Manoa ](https://cee.hawaii.edu) since Spring 2025. 
   
-  I am broadly interested in the areas of transportation systems.
+  I am broadly interested in the areas of transportation systems including but not limited to traffic simulation, network optimization, discrete choice models and reinforcement learning.
 
 Research
 ====== 
