@@ -10,7 +10,7 @@
 <body>
   <header class="header">
     <nav class="nav">
-      <div class="logo">MyPortfolio</div>
+      <div class="logo">Rajan Bhusal</div>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -22,8 +22,8 @@
 
   <section id="hero" class="hero">
     <div class="hero-content">
-      <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
-      <p>A passionate Web Developer</p>
+      <h1>Hi, I'm <span class="highlight">Rajan</span></h1>
+      <p>Master's Student at the University of Hawaii at Manoa</p>
       <a href="#projects" class="btn">See My Work</a>
     </div>
   </section>
@@ -31,7 +31,7 @@
   <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-      I'm a full-stack developer with a love for clean, elegant code and great user experience. I specialize in building responsive web apps.
+      I'm a civil engineer currently pursuing an MS with a specialization in transportation engineering
     </p>
   </section>
 
@@ -55,16 +55,25 @@
 
   <section id="contact" class="contact">
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <form action="https://formsubmit.co/rbhusal61@gmail.com" method="POST">
+    <!-- Honeypot (spam protection) -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- Disable Captcha -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Redirect after submission -->
+    <input type="hidden" name="_next" value="https://rajanbhusal.github.io/thank-you.html">
+
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
   </section>
 
   <footer class="footer">
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
+    <p>&copy; 2025 Rajan Bhusal. All rights reserved.</p>
   </footer>
 </body>
 </html>
