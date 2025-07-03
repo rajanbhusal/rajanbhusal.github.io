@@ -10,16 +10,22 @@
 <body>
   <header class="header">
     <nav class="nav">
-      <div class="logo">Rajan Bhusal</div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="logo">Rajan Bhusal</div>
+
+  <!-- Hamburger toggle (mobile) -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- Nav links -->
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <section id="hero" class="hero">
@@ -105,6 +111,14 @@
       <a href="https://github.com/rajanbhusal" target="_blank">GitHub</a>
     </div>
   </footer>
+  <script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 </body>
 
 </html>
