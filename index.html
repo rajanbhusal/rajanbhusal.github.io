@@ -3,43 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Rajan Bhusal | Graduate Student</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header">
     <nav class="nav">
-  <div class="logo">Rajan Bhusal</div>
-
-  <!-- Hamburger toggle (mobile) -->
-  <div class="hamburger" id="hamburger">&#9776;</div>
-
-  <!-- Nav links -->
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
+      <div class="logo">Rajan Bhusal</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="hero" class="hero">
+  <section class="hero">
     <div class="hero-content">
-      <h1>Welcome, I’m <span class="highlight">Rajan Bhusal</span></h1>
-      <p>A graduate student in Civil and Environmental Engineering at the University of Hawai‘i at Mānoa</p>
-      <a href="#projects" class="btn">See My Work</a>
+      <h1>Rajan Bhusal</h1>
+      <p>Graduate Student in Civil and Environmental Engineering<br>University of Hawai‘i at Mānoa</p>
     </div>
   </section>
 
   <section id="about" class="about">
     <h2>About Me</h2>
     <p>
-      I am a civil engineering graduate student with a focus on transportation engineering. My research interests lie in traffic simulation, network optimization, discrete choice models and reinforcement learning.
+      I am a civil engineering graduate student with a focus on transportation engineering. My research interests include traffic simulation, network optimization, discrete choice models, and reinforcement learning.
     </p>
   </section>
 
@@ -47,18 +39,18 @@
     <h2>Research & Publications</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Understanding the impacts of cyberthreats on EV Charging Station Networks</h3>
+        <h3>Cyberthreats in EV Charging Networks</h3>
         <p><em>(Ongoing)</em>, 2025<br>
-        <a href="#" target="_blank">[View Publication]</a></p>
+        <a href="#">[View Publication]</a></p>
       </div>
       <div class="project-card">
-        <h3>Resiliency of Urban Traffic Networks Under Unplanned Extreme Events</h3>
+        <h3>Resiliency of Urban Traffic Networks</h3>
         <p><em>(Ongoing)</em>, 2025<br>
-        <a href="#" target="_blank">[View Paper]</a></p>
+        <a href="#">[View Paper]</a></p>
       </div>
       <div class="project-card">
-        <h3>Time Hazard Modeling of Traffic Networks</h3>
-        <p>Modeling time recovery of traffic networks under unplanned events</p>
+        <h3>Time Hazard Modeling</h3>
+        <p>Modeling time recovery of traffic networks under unplanned events.</p>
       </div>
     </div>
   </section>
@@ -67,15 +59,15 @@
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <h3>Transportation Network Model for Maui</h3>
-        <p>A network model developed using Python and POLARIS to simulate traffic flow on urban road networks on the island of Maui.</p>
+        <h3>Maui Transportation Model</h3>
+        <p>A network model using Python and POLARIS to simulate traffic flow on urban road networks in Maui.</p>
       </div>
       <div class="project-card">
-        <h3>Working Project 2</h3>
-        <p>Redesign proposal for Honolulu's downtown to enhance walkability and transit access.</p>
+        <h3>Downtown Honolulu Redesign</h3>
+        <p>Proposal to improve walkability and transit access in downtown Honolulu.</p>
       </div>
       <div class="project-card">
-        <h3>Working Project 3</h3>
+        <h3>Transportation Dashboard</h3>
         <p>Built with Tableau to visualize congestion, safety, and equity metrics for planners.</p>
       </div>
     </div>
@@ -111,14 +103,5 @@
       <a href="https://github.com/rajanbhusal" target="_blank">GitHub</a>
     </div>
   </footer>
-  <script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("nav-links");
-
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-</script>
 </body>
-
 </html>
