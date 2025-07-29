@@ -11,6 +11,23 @@ body {
   color: #222;
   background: #ffffff;
 }
+.intro {
+  padding: 2rem 1rem;
+  background: #f7f7f7;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.intro h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: #444;
+}
 
 a {
   text-decoration: none;
