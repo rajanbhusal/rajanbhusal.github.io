@@ -31,7 +31,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #0044cc;
+  color: #444;
 }
 
 a:hover {
@@ -70,7 +70,7 @@ a:hover {
 }
 
 .nav-links a {
-  color: #0044cc;
+  color: #444;
 }
 
 /* Hero */
@@ -95,7 +95,7 @@ a:hover {
 .btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #0044cc;
+  background: #444;
   color: #fff;
   border-radius: 4px;
   font-size: 0.95rem;
@@ -104,7 +104,7 @@ a:hover {
 }
 
 .btn:hover {
-  background: #002a80;
+  background: #444;
 }
 
 /* Sections */
@@ -146,7 +146,7 @@ a:hover {
 .project-card h3 {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
-  color: #0044cc;
+  color: #444;
 }
 
 .project-card p {
@@ -174,7 +174,7 @@ a:hover {
 
 .contact button {
   padding: 0.75rem;
-  background: #0044cc;
+  background: #444;
   color: white;
   border: none;
   border-radius: 4px;
@@ -182,7 +182,7 @@ a:hover {
 }
 
 .contact button:hover {
-  background: #002a80;
+  background: #444;
 }
 
 /* Footer */
@@ -195,7 +195,7 @@ a:hover {
 }
 
 .footer a {
-  color: #0044cc;
+  color: #444;
 }
 
 .footer a:hover {
@@ -210,7 +210,7 @@ a:hover {
   background: none;
   border: none;
   cursor: pointer;
-  color: #0044cc;
+  color: #444;
   padding: 0.25rem 0.5rem;
 }
 
