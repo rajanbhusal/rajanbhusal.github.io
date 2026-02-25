@@ -19,7 +19,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -31,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* GRID BACKGROUND */
   body::before {
     content: '';
     position: fixed;
@@ -44,7 +42,6 @@
     z-index: 0;
   }
 
-  /* NOISE TEXTURE */
   body::after {
     content: '';
     position: fixed;
@@ -55,12 +52,9 @@
     opacity: 0.5;
   }
 
-  /* NAV */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
@@ -70,738 +64,265 @@
     background: rgba(10,10,15,0.85);
     backdrop-filter: blur(20px);
   }
-
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.5px;
-    color: var(--text);
-    text-decoration: none;
-  }
-
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
   .nav-logo span { color: var(--accent); }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
-
-  .nav-cta {
-    background: var(--accent);
-    color: #0a0a0f !important;
-    padding: 8px 20px !important;
-    font-weight: 500 !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    font-size: 13px !important;
-    transition: opacity 0.2s !important;
-  }
-
+  .nav-cta { background: var(--accent); color: #0a0a0f !important; padding: 8px 20px !important; font-weight: 500 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; transition: opacity 0.2s !important; }
   .nav-cta:hover { opacity: 0.85; }
 
-  /* SECTIONS */
   section { position: relative; z-index: 1; }
 
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 48px 80px 80px;
-    border-right: 1px solid var(--border);
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 32px;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(52px, 6vw, 88px);
-    line-height: 1.0;
-    letter-spacing: -2px;
-    color: var(--text);
-    margin-bottom: 28px;
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-
-  .hero-desc {
-    font-size: 15px;
-    color: var(--muted);
-    max-width: 420px;
-    line-height: 1.8;
-    margin-bottom: 48px;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #0a0a0f;
-    padding: 14px 32px;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-
+  #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 48px 80px 80px; border-right: 1px solid var(--border); }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(52px, 6vw, 88px); line-height: 1.0; letter-spacing: -2px; color: var(--text); margin-bottom: 28px; }
+  h1 em { font-style: italic; color: var(--accent2); }
+  .hero-desc { font-size: 15px; color: var(--muted); max-width: 420px; line-height: 1.8; margin-bottom: 48px; }
+  .hero-btns { display: flex; gap: 16px; align-items: center; }
+  .btn-primary { background: var(--accent); color: #0a0a0f; padding: 14px 32px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, opacity 0.2s; }
   .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
-
-  .btn-ghost {
-    color: var(--muted);
-    font-size: 13px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-  }
-
+  .btn-ghost { color: var(--muted); font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--text); }
-
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 80px 80px 48px;
-  }
-
-  .stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 40px;
-  }
-
-  .stat-item {
-    background: var(--surface);
-    padding: 28px 24px;
-    animation: fadeUp 0.8s ease both;
-  }
-
+  .hero-right { display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 80px 48px; }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
+  .stat-item { background: var(--surface); padding: 28px 24px; animation: fadeUp 0.8s ease both; }
   .stat-item:nth-child(1) { animation-delay: 0.1s; }
   .stat-item:nth-child(2) { animation-delay: 0.2s; }
   .stat-item:nth-child(3) { animation-delay: 0.3s; }
   .stat-item:nth-child(4) { animation-delay: 0.4s; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .skills-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag { font-size: 11px; padding: 5px 12px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; transition: all 0.2s; }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
+  .scroll-indicator { position: absolute; bottom: 36px; left: 80px; display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; animation: fadeIn 1s ease 1s both; }
+  .scroll-line { width: 40px; height: 1px; background: var(--muted); position: relative; overflow: hidden; }
+  .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent); animation: scrollMove 2s ease infinite; }
+  @keyframes scrollMove { 0% { left: -100%; } 100% { left: 100%; } }
 
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .skills-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .skill-tag {
-    font-size: 11px;
-    padding: 5px 12px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    transition: all 0.2s;
-  }
-
-  .skill-tag:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* SCROLL INDICATOR */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 36px;
-    left: 80px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    animation: fadeIn 1s ease 1s both;
-  }
-
-  .scroll-line {
-    width: 40px;
-    height: 1px;
-    background: var(--muted);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .scroll-line::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: var(--accent);
-    animation: scrollMove 2s ease infinite;
-  }
-
-  @keyframes scrollMove {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
-
-  /* PROJECTS */
-  #projects {
-    border-top: 1px solid var(--border);
-    padding: 120px 80px;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 64px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-num {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(36px, 4vw, 56px);
-    letter-spacing: -1.5px;
-    line-height: 1;
-  }
-
-  .section-link {
-    font-size: 12px;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.2s;
-  }
-
+  #projects { border-top: 1px solid var(--border); padding: 120px 80px; }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .section-num { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: -1.5px; line-height: 1; }
+  .section-link { font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
   .section-link:hover { gap: 14px; }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-  }
-
-  .project-card {
-    background: var(--surface);
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .project-card { background: var(--surface); padding: 40px; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
   .project-card:hover { background: #16161f; }
-
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--accent);
-    transition: height 0.4s ease;
-  }
-
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.4s ease; }
   .project-card:hover::before { height: 100%; }
-
   .project-card.accent2::before { background: var(--accent2); }
   .project-card.accent3::before { background: var(--accent3); }
-
-  .project-category {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-
+  .project-category { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
   .project-card.accent2 .project-category { color: var(--accent2); }
   .project-card.accent3 .project-category { color: var(--accent3); }
-
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .project-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 28px;
-  }
-
-  .project-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .project-stack {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-
-  .stack-tag {
-    font-size: 10px;
-    padding: 3px 8px;
-    background: rgba(255,255,255,0.04);
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-
-  .project-arrow {
-    color: var(--muted);
-    font-size: 18px;
-    transition: transform 0.2s, color 0.2s;
-  }
-
-  .project-card:hover .project-arrow {
-    transform: translate(4px, -4px);
-    color: var(--accent);
-  }
-
-  .project-card:first-child {
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .project-chart {
-    height: 160px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-  }
-
-  .chart-bar {
-    flex: 1;
-    background: rgba(196,241,53,0.15);
-    border-top: 2px solid var(--accent);
-    transition: background 0.3s;
-    position: relative;
-  }
-
+  .project-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+  .project-meta { display: flex; justify-content: space-between; align-items: center; }
+  .project-stack { display: flex; gap: 6px; flex-wrap: wrap; }
+  .stack-tag { font-size: 10px; padding: 3px 8px; background: rgba(255,255,255,0.04); color: var(--muted); letter-spacing: 0.05em; }
+  .project-arrow { color: var(--muted); font-size: 18px; transition: transform 0.2s, color 0.2s; }
+  .project-card:hover .project-arrow { transform: translate(4px, -4px); color: var(--accent); }
+  .project-card:first-child { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .project-chart { height: 160px; position: relative; display: flex; align-items: flex-end; gap: 6px; }
+  .chart-bar { flex: 1; background: rgba(196,241,53,0.15); border-top: 2px solid var(--accent); transition: background 0.3s; }
   .project-card:hover .chart-bar { background: rgba(196,241,53,0.22); }
 
-  /* ABOUT */
-  #about {
-    border-top: 1px solid var(--border);
-    padding: 120px 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-
+  #about { border-top: 1px solid var(--border); padding: 120px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
   .about-left h2 { margin-bottom: 28px; }
-
-  .about-body {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.9;
-    margin-bottom: 40px;
-  }
-
+  .about-body { color: var(--muted); font-size: 15px; line-height: 1.9; margin-bottom: 40px; }
   .experience-list { list-style: none; }
-
-  .exp-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-  }
-
-  .exp-year {
-    font-size: 11px;
-    color: var(--muted);
-    width: 60px;
-    padding-top: 3px;
-  }
-
-  .exp-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-
-  .exp-company {
-    font-size: 12px;
-    color: var(--accent);
-  }
-
-  .skills-section h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 28px;
-    letter-spacing: -0.3px;
-  }
-
+  .exp-item { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .exp-year { font-size: 11px; color: var(--muted); width: 60px; padding-top: 3px; }
+  .exp-role { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .exp-company { font-size: 12px; color: var(--accent); }
+  .skills-section h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.3px; }
   .skill-bar-group { margin-bottom: 16px; }
-
-  .skill-bar-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-size: 12px;
-  }
-
+  .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; }
   .skill-bar-label { color: var(--text); }
   .skill-bar-pct { color: var(--muted); }
-
-  .skill-bar-track {
-    height: 2px;
-    background: var(--border);
-    overflow: hidden;
-  }
-
-  .skill-bar-fill {
-    height: 100%;
-    background: var(--accent);
-    transform-origin: left;
-    animation: barGrow 1.5s ease both;
-    animation-play-state: paused;
-  }
-
+  .skill-bar-track { height: 2px; background: var(--border); overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: var(--accent); transform-origin: left; animation: barGrow 1.5s ease both; animation-play-state: paused; }
   .skill-bar-fill.accent2 { background: var(--accent2); }
   .skill-bar-fill.accent3 { background: var(--accent3); }
-
   .skills-section.visible .skill-bar-fill { animation-play-state: running; }
+  @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-  @keyframes barGrow {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
-
-  /* CONTACT */
-  #contact {
-    border-top: 1px solid var(--border);
-    padding: 120px 80px;
-    text-align: center;
-  }
-
-  #contact h2 {
-    font-size: clamp(48px, 8vw, 100px);
-    letter-spacing: -3px;
-    margin-bottom: 24px;
-    color: var(--text);
-  }
-
-  #contact h2 em { color: var(--accent); font-style: italic; }
-
-  .contact-sub {
-    color: var(--muted);
-    font-size: 15px;
-    max-width: 400px;
-    margin: 0 auto 48px;
-    line-height: 1.8;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(196,241,53,0.04);
-  }
-
-  /* FOOTER */
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 28px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* CURSOR DOT */
-  .cursor {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-    mix-blend-mode: difference;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 100px 32px 60px; border-right: none; border-bottom: 1px solid var(--border); }
-    .hero-right { padding: 40px 32px 60px; }
-    #projects { padding: 80px 32px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card:first-child { grid-column: span 1; grid-template-columns: 1fr; }
-    .project-chart { display: none; }
-    #about { grid-template-columns: 1fr; padding: 80px 32px; gap: 60px; }
-    #contact { padding: 80px 32px; }
-    nav { padding: 16px 24px; }
-    footer { padding: 20px 32px; flex-direction: column; gap: 8px; }
-    .scroll-indicator { left: 32px; }
-    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  }
-  /* PHOTOS */
-  #photos {
-    border-top: 1px solid var(--border);
-    padding: 120px 80px;
-  }
+  /* ─────────────────────────────────────
+     PHOTOS
+  ───────────────────────────────────── */
+  #photos { border-top: 1px solid var(--border); padding: 120px 80px; }
 
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+    gap: 3px;
     background: var(--border);
   }
 
+  /* Each tile */
   .photo-item {
     position: relative;
     aspect-ratio: 4/3;
-    background: var(--surface);
     overflow: hidden;
-    cursor: pointer;
+    background: var(--surface);
+    cursor: zoom-in;
+    display: block;
   }
 
+  /* Photo fills tile */
   .photo-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease, filter 0.4s ease;
-    filter: grayscale(20%);
+    filter: grayscale(10%);
   }
-
   .photo-item:hover img {
     transform: scale(1.06);
     filter: grayscale(0%);
   }
 
-  .photo-item.tall {
-    grid-row: span 2;
-    aspect-ratio: unset;
-  }
-
-  .photo-overlay {
+  /* ── LOCATION LABEL — always visible at bottom ── */
+  .photo-label {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10,10,15,0.75) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.3s;
+    bottom: 0; left: 0; right: 0;
+    /* Dark gradient scrim so text pops over any image */
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 12, 0.95) 0%,
+      rgba(5, 5, 12, 0.6)  40%,
+      transparent          100%
+    );
+    padding: 32px 12px 10px;
     display: flex;
     align-items: flex-end;
-    padding: 20px;
+    gap: 5px;
+    pointer-events: none;
+    z-index: 2;
   }
 
-  .photo-item:hover .photo-overlay { opacity: 1; }
-
-  .photo-caption {
-    font-size: 12px;
-    color: var(--text);
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-  }
-
-  .photo-caption span {
-    display: block;
-    font-size: 10px;
+  /* ◎ pin icon */
+  .photo-label::before {
+    content: '◎';
+    font-size: 9px;
     color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    flex-shrink: 0;
     margin-bottom: 2px;
+    line-height: 1;
   }
 
-  /* Placeholder for empty photo slots */
-  .photo-placeholder {
-    background: var(--surface);
+  .photo-label-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 2px dashed var(--border);
-    transition: border-color 0.2s;
-    cursor: default;
+    gap: 1px;
+    min-width: 0;
   }
 
-  .photo-placeholder:hover { border-color: var(--muted); }
+  .photo-label-name {
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  }
 
-  .photo-placeholder svg { opacity: 0.3; }
+  .photo-label-sub {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
 
   /* LIGHTBOX */
   .lightbox {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(10,10,15,0.95);
+    background: rgba(5, 5, 12, 0.96);
     z-index: 200;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 40px;
+    gap: 16px;
   }
-
   .lightbox.open { display: flex; }
-
-  .lightbox img {
-    max-width: 90vw;
-    max-height: 85vh;
-    object-fit: contain;
-    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+  .lightbox img { max-width: 90vw; max-height: 80vh; object-fit: contain; box-shadow: 0 40px 120px rgba(0,0,0,0.9); }
+  .lightbox-loc {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--text);
+    letter-spacing: 0.03em;
   }
-
-  .lightbox-close {
-    position: fixed;
-    top: 24px;
-    right: 32px;
-    font-size: 28px;
-    color: var(--muted);
-    cursor: pointer;
-    background: none;
-    border: none;
-    line-height: 1;
-    transition: color 0.2s;
-  }
-
+  .lightbox-loc::before { content: '◎'; color: var(--accent); font-size: 11px; }
+  .lightbox-loc-sub { color: var(--muted); font-size: 11px; }
+  .lightbox-close { position: fixed; top: 24px; right: 32px; font-size: 28px; color: var(--muted); cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.2s; }
   .lightbox-close:hover { color: var(--text); }
 
+  #contact { border-top: 1px solid var(--border); padding: 120px 80px; text-align: center; }
+  #contact h2 { font-size: clamp(48px, 8vw, 100px); letter-spacing: -3px; margin-bottom: 24px; color: var(--text); }
+  #contact h2 em { color: var(--accent); font-style: italic; }
+  .contact-sub { color: var(--muted); font-size: 15px; max-width: 400px; margin: 0 auto 48px; line-height: 1.8; }
+  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 8px; padding: 12px 28px; border: 1px solid var(--border); color: var(--muted); text-decoration: none; font-size: 13px; transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,241,53,0.04); }
+
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  .cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; mix-blend-mode: difference; }
+
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    #photos { padding: 80px 32px; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 100px 24px 60px; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 40px 24px 60px; }
+    #projects { padding: 80px 24px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:first-child { grid-column: span 1; grid-template-columns: 1fr; }
+    .project-chart { display: none; }
+    #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
+    #contact { padding: 80px 24px; }
+    #photos { padding: 80px 24px; }
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 18px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    .scroll-indicator { left: 24px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+    /* 2-column grid on tablet */
     .photo-grid { grid-template-columns: 1fr 1fr; }
-    .photo-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+    /* Slightly taller tiles on mobile so labels don't crowd the image */
+    .photo-item { aspect-ratio: 3/4; }
+    .photo-label-name { font-size: 13px; }
+    .photo-label-sub  { font-size: 11px; }
   }
 
+  @media (max-width: 480px) {
+    /* Single column on small phones */
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-item { aspect-ratio: 4/3; }
+    /* Hide middle nav items, keep CTA visible */
+    .nav-links li:not(:last-child) { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -832,22 +353,10 @@
   </div>
   <div class="hero-right">
     <div class="stat-grid">
-      <div class="stat-item">
-        <div class="stat-num">MS</div>
-        <div class="stat-label">Civil Engineering, UH Mānoa</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">2+</div>
-        <div class="stat-label">Years in Research</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Academic projects</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Conference paper</div>
-      </div>
+      <div class="stat-item"><div class="stat-num">MS</div><div class="stat-label">Civil Engineering, UH Mānoa</div></div>
+      <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Years in Research</div></div>
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Academic projects</div></div>
+      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Conference paper</div></div>
     </div>
     <div class="skills-row">
       <span class="skill-tag">Python</span>
@@ -859,7 +368,6 @@
       <span class="skill-tag">Spark</span>
       <span class="skill-tag">dbt</span>
       <span class="skill-tag">Airflow</span>
-      <span class="skill-tag">Kubernetes</span>
       <span class="skill-tag">HERE API</span>
       <span class="skill-tag">OpenStreetMap</span>
     </div>
@@ -881,8 +389,6 @@
   </div>
 
   <div class="projects-grid fade-up">
-
-    <!-- Featured -->
     <div class="project-card">
       <div>
         <div class="project-category">Featured · MS Thesis · 2026</div>
@@ -901,11 +407,10 @@
       <div class="project-chart" id="chart1"></div>
     </div>
 
-    <!-- Card 2 -->
     <div class="project-card accent2">
       <div class="project-category">GRA Research · 2025</div>
       <div class="project-title">Data-Driven Assessments of Cyberthreats on EV Charging Station Networks</div>
-      <div class="project-desc">Analysis of the impacts of cyberthreats on EV Charging Stations due to cyberthreats. Studied impacts in transportation scale outcomes using traffic simulation.</div>
+      <div class="project-desc">Analysis of the impacts of cyberthreats on EV Charging Stations. Studied impacts in transportation scale outcomes using traffic simulation.</div>
       <div class="project-meta">
         <div class="project-stack">
           <span class="stack-tag">Pandas</span>
@@ -916,7 +421,6 @@
       </div>
     </div>
 
-    <!-- Card 3 -->
     <div class="project-card">
       <div class="project-category">Course Project · 2023</div>
       <div class="project-title">Bikeshare Demand Forecasting — Biki Honolulu</div>
@@ -931,11 +435,10 @@
       </div>
     </div>
 
-    <!-- Card 4 -->
     <div class="project-card accent3">
       <div class="project-category">Course Project · 2022</div>
       <div class="project-title">Transit Equity Analysis — Oʻahu Bus Access</div>
-      <div class="project-desc">Measured walkable access to TheBus stops by census tract and overlaid with income, disability, and car-ownership data from ACS. Identified service gaps and produced a visualization dashboard in Tableau for a public planning course.</div>
+      <div class="project-desc">Measured walkable access to TheBus stops by census tract and overlaid with income, disability, and car-ownership data from ACS. Identified service gaps and produced a visualization dashboard in Tableau.</div>
       <div class="project-meta">
         <div class="project-stack">
           <span class="stack-tag">R</span>
@@ -945,7 +448,6 @@
         <span class="project-arrow">↗</span>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -985,54 +487,30 @@
     <h3>Technical proficiency</h3>
 
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">Python (Pandas, scikit-learn, PyTorch)</span>
-        <span class="skill-bar-pct">78%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">Python (Pandas, scikit-learn, PyTorch)</span><span class="skill-bar-pct">78%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
     </div>
-
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">Geospatial Analysis (GeoPandas, QGIS)</span>
-        <span class="skill-bar-pct">75%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">Geospatial Analysis (GeoPandas, QGIS)</span><span class="skill-bar-pct">75%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
     </div>
-
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">Machine Learning & Model Evaluation</span>
-        <span class="skill-bar-pct">72%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">Machine Learning & Model Evaluation</span><span class="skill-bar-pct">72%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill accent2" style="width:72%"></div></div>
     </div>
-
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">SQL & Data Wrangling</span>
-        <span class="skill-bar-pct">80%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">SQL & Data Wrangling</span><span class="skill-bar-pct">80%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
     </div>
-
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">R & Statistical Analysis</span>
-        <span class="skill-bar-pct">70%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">R & Statistical Analysis</span><span class="skill-bar-pct">70%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill accent3" style="width:70%"></div></div>
     </div>
-
     <div class="skill-bar-group">
-      <div class="skill-bar-header">
-        <span class="skill-bar-label">Data Visualization (Tableau, Matplotlib)</span>
-        <span class="skill-bar-pct">74%</span>
-      </div>
+      <div class="skill-bar-header"><span class="skill-bar-label">Data Visualization (Tableau, Matplotlib)</span><span class="skill-bar-pct">74%</span></div>
       <div class="skill-bar-track"><div class="skill-bar-fill accent2" style="width:74%"></div></div>
     </div>
 
-    <!-- Domain expertise block -->
     <div style="margin-top:32px;padding:0;border:1px solid var(--border);overflow:hidden">
       <div style="padding:16px 24px;background:rgba(196,241,53,0.06);border-bottom:1px solid var(--border);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;">Domain Expertise — Transportation Systems</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
@@ -1049,13 +527,13 @@
           <div style="font-size:12px;color:var(--muted);line-height:1.6">Bikeshare, mode-choice, accessibility &amp; equity analysis</div>
         </div>
         <div style="background:var(--surface);padding:16px 20px">
-          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Forecasting</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">Time-series demand prediction, SARIMA, Prophet, LSTM baselines</div>
+          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Cybersecurity</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">NLP-based threat analysis, EV infrastructure risk, traffic simulation</div>
         </div>
       </div>
     </div>
 
-    <div style="margin-top:24px; padding:24px; background:var(--surface); border:1px solid var(--border)">
+    <div style="margin-top:24px;padding:24px;background:var(--surface);border:1px solid var(--border)">
       <div style="font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Currently learning</div>
       <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px">Graph Neural Networks for Transport</div>
       <div style="font-size:13px;color:var(--muted);line-height:1.7">Exploring PyTorch Geometric for road network modeling and spatiotemporal traffic prediction as part of my thesis work.</div>
@@ -1074,58 +552,77 @@
 
   <div class="photo-grid fade-up">
 
-    <div class="photo-item photo-placeholder" data-location="Honolulu, Hawaii" data-sublocation="United States · 2025">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="rajan.jpg" >
-        <span class="photo-placeholder-loc">📍 Honolulu, Hawaii</span>
+    <div class="photo-item">
+      <img src="rajan.jpg" alt="Honolulu, Hawaii">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Honolulu, Hawaii</span>
+          <span class="photo-label-sub">United States · 2025</span>
+        </div>
       </div>
     </div>
 
-    <div class="photo-item photo-placeholder" data-location="Honolulu, Hawaii" data-sublocation="United States · 2025">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="hawaii1.jpg">
-        <span class="photo-placeholder-loc">📍 Honolulu, Hawaii</span>
+    <div class="photo-item">
+      <img src="hawaii1.jpg" alt="Honolulu, Hawaii">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Honolulu, Hawaii</span>
+          <span class="photo-label-sub">United States · 2025</span>
+        </div>
       </div>
     </div>
 
-    <div class="photo-item photo-placeholder" data-location="Your Location" data-sublocation="Country · Year">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="hawaii2.jpg">
-        <span class="photo-placeholder-loc">📍 Honolulu, Hawaii</span>
+    <div class="photo-item">
+      <img src="hawaii2.jpg" alt="Honolulu, Hawaii">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Honolulu, Hawaii</span>
+          <span class="photo-label-sub">United States · 2025</span>
+        </div>
       </div>
     </div>
 
-    <div class="photo-item photo-placeholder" data-location="Nepal" data-sublocation="Nepal · 2024">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="manaslu2.JPG">
-        <span class="photo-placeholder-loc">📍 Manaslu Circuit Trek, Nepal</span>
+    <div class="photo-item">
+      <img src="manaslu2.JPG" alt="Manaslu Circuit Trek">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Manaslu Circuit Trek</span>
+          <span class="photo-label-sub">Nepal · 2024</span>
+        </div>
       </div>
     </div>
 
-    <div class="photo-item photo-placeholder" data-location="Nepal" data-sublocation="Nepal · 2023">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="khopra1.jpg">
-        <span class="photo-placeholder-loc">📍 Khopra Ridge Trek, Nepal</span>
+    <div class="photo-item">
+      <img src="khopra1.jpg" alt="Khopra Ridge Trek">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Khopra Ridge Trek</span>
+          <span class="photo-label-sub">Nepal · 2023</span>
+        </div>
       </div>
     </div>
- <div class="photo-item photo-placeholder" data-location="Nepal" data-sublocation="Nepal · 2023">
-      <div class="photo-placeholder-label">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <img src="khopra2.jpg">
-        <span class="photo-placeholder-loc">📍 Khopra Ridge Trek, Nepal</span>
+
+    <div class="photo-item">
+      <img src="khopra2.jpg" alt="Khopra Ridge Trek">
+      <div class="photo-label">
+        <div class="photo-label-text">
+          <span class="photo-label-name">Khopra Ridge Trek</span>
+          <span class="photo-label-sub">Nepal · 2023</span>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose">✕</button>
   <img src="" id="lightboxImg" alt="">
+  <div class="lightbox-loc">
+    <span id="lightboxName"></span>
+    <span class="lightbox-loc-sub" id="lightboxSub"></span>
+  </div>
 </div>
 
 <!-- CONTACT -->
@@ -1135,7 +632,7 @@
     <h2>Let's <em>work</em><br>together</h2>
     <p class="contact-sub">Looking for entry-level data science roles in transportation and tech. Open to US-based positions.</p>
     <div class="contact-links">
-      <a href="mailto:alex@alexchen.io" class="contact-link">✉ rajanb@hawaii.edu</a>
+      <a href="mailto:rajanb@hawaii.edu" class="contact-link">✉ rajanb@hawaii.edu</a>
       <a href="https://linkedin.com/in/rbhusal" class="contact-link">⌁ LinkedIn</a>
       <a href="https://github.com/rajanbhusal" class="contact-link">⌂ GitHub</a>
       <a href="#" class="contact-link">↓ Resume PDF</a>
@@ -1145,7 +642,7 @@
 
 <footer>
   <span>© 2026 Rajan Bhusal</span>
-  <span>Honolulu, HI · Open to remote and US-based Positions</span>
+  <span>Honolulu, HI · Open to remote and US-based positions</span>
 </footer>
 
 <script>
@@ -1160,34 +657,29 @@
     el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
   });
 
-  // Intersection Observer for animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+  // Scroll animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Skills bar observer
   const skillsObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.3 });
-
   document.querySelectorAll('.skills-section').forEach(el => skillsObserver.observe(el));
 
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
+  // Lightbox — reads name/sub from .photo-label-text inside same tile
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg  = document.getElementById('lightboxImg');
+  const lightboxName = document.getElementById('lightboxName');
+  const lightboxSub  = document.getElementById('lightboxSub');
+
   document.querySelectorAll('.photo-item img').forEach(img => {
     img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
+      const tile = img.closest('.photo-item');
+      lightboxImg.src           = img.src;
+      lightboxName.textContent  = tile.querySelector('.photo-label-name')?.textContent || '';
+      lightboxSub.textContent   = tile.querySelector('.photo-label-sub')?.textContent  || '';
       lightbox.classList.add('open');
     });
   });
@@ -1195,14 +687,12 @@
   lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 
-
+  // Chart bars
   const chart = document.getElementById('chart1');
-  const values = [40, 65, 45, 80, 60, 72, 55, 90, 68, 85, 75, 95];
-  values.forEach(v => {
+  [40,65,45,80,60,72,55,90,68,85,75,95].forEach(v => {
     const bar = document.createElement('div');
     bar.className = 'chart-bar';
     bar.style.height = v + '%';
-    bar.style.animationDelay = Math.random() * 0.5 + 's';
     chart.appendChild(bar);
   });
 </script>
