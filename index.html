@@ -3,672 +3,591 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajan Bhusal — Entry Level Data Scientist</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<title>Rajan Bhusal — Transportation Cybersecurity Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #111118;
-    --border: #1e1e2e;
-    --text: #e8e6f0;
-    --muted: #6b6880;
-    --accent: #c4f135;
-    --accent2: #7c6af7;
-    --accent3: #f135a8;
-    --grid: rgba(255,255,255,0.025);
+  :root{
+    --bg:#14171B;
+    --bg-alt:#1B1F24;
+    --panel:#1D2228;
+    --ink:#ECEAE2;
+    --ink-dim:#9BA1A8;
+    --ink-faint:#6B7178;
+    --amber:#E8A33D;
+    --green:#4C9A79;
+    --red:#C1443C;
+    --blue:#6E93B7;
+    --line:rgba(236,234,226,0.10);
+    --line-strong:rgba(236,234,226,0.18);
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--amber); color:#14171B;}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ===== NAV ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(20,23,27,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:1rem;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(76,154,121,0.18);
+  }
+  .navlinks{display:flex; gap:32px; font-size:0.88rem;}
+  .navlinks a{
+    color:var(--ink-dim); text-decoration:none;
+    padding:4px 0; border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlinks a:hover{color:var(--ink); border-color:var(--line-strong);}
+  .navtoggle{display:none; background:none; border:1px solid var(--line-strong); color:var(--ink); width:38px; height:38px; border-radius:var(--radius); font-size:1.1rem;}
+
+  @media (max-width:760px){
+    .navlinks{
+      position:absolute; top:64px; left:0; right:0;
+      flex-direction:column; gap:0;
+      background:var(--bg-alt); border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height .25s ease;
+    }
+    .navlinks.open{max-height:320px;}
+    .navlinks a{padding:16px 28px; border-bottom:1px solid var(--line); width:100%;}
+    .navtoggle{display:block;}
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  /* ===== STATUS BADGE (signal-light language used throughout) ===== */
+  .badge{
+    display:inline-flex; align-items:center; gap:7px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--ink-dim);
+    padding:4px 9px; border:1px solid var(--line-strong); border-radius:var(--radius);
+  }
+  .badge .light{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
+  .badge.go .light{background:var(--green); box-shadow:0 0 6px rgba(76,154,121,0.7);}
+  .badge.caution .light{background:var(--amber); box-shadow:0 0 6px rgba(232,163,61,0.7);}
+  .badge.hold .light{background:var(--blue); box-shadow:0 0 6px rgba(110,147,183,0.6);}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: hidden;
+  /* ===== HERO ===== */
+  .hero{
+    padding:88px 0 72px;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 78% 15%, rgba(110,147,183,0.07), transparent 55%),
+      var(--bg);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--amber); letter-spacing:0.06em; text-transform:uppercase;
+    margin-bottom:18px; display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.15rem);
+    font-weight:700; line-height:1.08;
+    margin-bottom:22px;
+  }
+  .hero h1 em{font-style:normal; color:var(--amber);}
+  .hero p.lede{
+    font-size:1.06rem; color:var(--ink-dim); max-width:46ch; margin-bottom:30px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
+    padding:11px 18px; border-radius:var(--radius);
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--amber); color:#14171B; border:1px solid var(--amber); font-weight:600;}
+  .btn-primary:hover{transform:translateY(-1px); background:#f2b455;}
+  .btn-ghost{border:1px solid var(--line-strong); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink-dim); transform:translateY(-1px);}
+
+  /* signature: schematic intersection diagram */
+  .diagram-frame{
+    border:1px solid var(--line-strong); border-radius:var(--radius);
+    background:var(--panel); padding:18px; position:relative;
+  }
+  .diagram-frame .cap{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--ink-faint);
+    display:flex; justify-content:space-between; margin-bottom:10px; letter-spacing:0.04em;
+  }
+  #signal-phase-label{color:var(--amber);}
+  svg.intersection{width:100%; height:auto; display:block;}
+  .sig-light{transition:fill .4s ease, opacity .4s ease;}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:76px 0; border-bottom:1px solid var(--line);}
+  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:38px;}
+  .section-num{font-family:'IBM Plex Mono', monospace; color:var(--ink-faint); font-size:0.85rem;}
+  .section-head h2{font-size:1.7rem; font-weight:600;}
+  .section-sub{color:var(--ink-dim); max-width:60ch; margin:-24px 0 38px; font-size:0.98rem;}
+
+  /* ===== ABOUT ===== */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--ink-dim); margin-bottom:16px; font-size:0.99rem;}
+  .about-grid strong{color:var(--ink); font-weight:600;}
+  .factbox{
+    background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--radius);
+    padding:22px;
+  }
+  .factbox dt{font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.05em; margin-top:16px;}
+  .factbox dt:first-child{margin-top:0;}
+  .factbox dd{color:var(--ink); font-size:0.94rem; margin-top:4px;}
+
+  /* ===== RESEARCH ===== */
+  .research-card{
+    display:grid; grid-template-columns:auto 1fr; gap:22px;
+    padding:26px 0; border-top:1px solid var(--line);
+  }
+  .research-card:first-of-type{border-top:none; padding-top:0;}
+  @media (max-width:640px){ .research-card{grid-template-columns:1fr;} }
+  .research-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--ink-faint);
+    white-space:nowrap; padding-top:4px;
+  }
+  .research-card h3{font-size:1.15rem; font-weight:600; margin-bottom:8px;}
+  .research-card p{color:var(--ink-dim); font-size:0.96rem; margin-bottom:12px;}
+  .chiprow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    color:var(--ink-dim); border:1px solid var(--line-strong); border-radius:var(--radius);
+    padding:3px 8px;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
+  /* ===== PUBLICATIONS ===== */
+  .pub{
+    padding:18px 0; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:auto 1fr; gap:18px;
   }
+  .pub:first-of-type{border-top:none;}
+  @media (max-width:640px){ .pub{grid-template-columns:1fr;} }
+  .pub-idx{font-family:'IBM Plex Mono', monospace; color:var(--ink-faint); font-size:0.85rem;}
+  .pub-title{font-size:0.98rem; color:var(--ink); margin-bottom:5px; font-weight:500;}
+  .pub-meta{font-size:0.85rem; color:var(--ink-faint);}
+  .pub-venue{color:var(--ink-dim);}
 
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.5;
+  /* ===== TIMELINE ===== */
+  .tl{position:relative; padding-left:28px;}
+  .tl::before{
+    content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+    background:var(--line-strong);
   }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 48px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(20px);
+  .tl-item{position:relative; padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-28px; top:4px; width:11px; height:11px;
+    border-radius:50%; background:var(--bg); border:2px solid var(--amber);
   }
-  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; color: var(--text); text-decoration: none; }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-cta { background: var(--accent); color: #0a0a0f !important; padding: 8px 20px !important; font-weight: 500 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; transition: opacity 0.2s !important; }
-  .nav-cta:hover { opacity: 0.85; }
+  .tl-item.dim::before{border-color:var(--ink-faint);}
+  .tl-year{font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--amber); display:block; margin-bottom:4px;}
+  .tl-item.dim .tl-year{color:var(--ink-faint);}
+  .tl-item h4{font-size:1rem; font-weight:600; margin-bottom:3px;}
+  .tl-item p{font-size:0.92rem; color:var(--ink-dim);}
 
-  section { position: relative; z-index: 1; }
-
-  #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
-  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 48px 80px 80px; border-right: 1px solid var(--border); }
-  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
-  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
-  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(52px, 6vw, 88px); line-height: 1.0; letter-spacing: -2px; color: var(--text); margin-bottom: 28px; }
-  h1 em { font-style: italic; color: var(--accent2); }
-  .hero-desc { font-size: 15px; color: var(--muted); max-width: 420px; line-height: 1.8; margin-bottom: 48px; }
-  .hero-btns { display: flex; gap: 16px; align-items: center; }
-  .btn-primary { background: var(--accent); color: #0a0a0f; padding: 14px 32px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, opacity 0.2s; }
-  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
-  .btn-ghost { color: var(--muted); font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
-  .btn-ghost:hover { color: var(--text); }
-  .hero-right { display: flex; flex-direction: column; justify-content: center; padding: 80px 80px 80px 48px; }
-  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
-  .stat-item { background: var(--surface); padding: 28px 24px; animation: fadeUp 0.8s ease both; }
-  .stat-item:nth-child(1) { animation-delay: 0.1s; }
-  .stat-item:nth-child(2) { animation-delay: 0.2s; }
-  .stat-item:nth-child(3) { animation-delay: 0.3s; }
-  .stat-item:nth-child(4) { animation-delay: 0.4s; }
-  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-  .skills-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-tag { font-size: 11px; padding: 5px 12px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; transition: all 0.2s; }
-  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  .scroll-indicator { position: absolute; bottom: 36px; left: 80px; display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; animation: fadeIn 1s ease 1s both; }
-  .scroll-line { width: 40px; height: 1px; background: var(--muted); position: relative; overflow: hidden; }
-  .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--accent); animation: scrollMove 2s ease infinite; }
-  @keyframes scrollMove { 0% { left: -100%; } 100% { left: 100%; } }
-
-  #projects { border-top: 1px solid var(--border); padding: 120px 80px; }
-  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
-  .section-num { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
-  h2 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: -1.5px; line-height: 1; }
-  .section-link { font-size: 12px; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
-  .section-link:hover { gap: 14px; }
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
-  .project-card { background: var(--surface); padding: 40px; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
-  .project-card:hover { background: #16161f; }
-  .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.4s ease; }
-  .project-card:hover::before { height: 100%; }
-  .project-card.accent2::before { background: var(--accent2); }
-  .project-card.accent3::before { background: var(--accent3); }
-  .project-category { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-  .project-card.accent2 .project-category { color: var(--accent2); }
-  .project-card.accent3 .project-category { color: var(--accent3); }
-  .project-title { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
-  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
-  .project-meta { display: flex; justify-content: space-between; align-items: center; }
-  .project-stack { display: flex; gap: 6px; flex-wrap: wrap; }
-  .stack-tag { font-size: 10px; padding: 3px 8px; background: rgba(255,255,255,0.04); color: var(--muted); letter-spacing: 0.05em; }
-  .project-arrow { color: var(--muted); font-size: 18px; transition: transform 0.2s, color 0.2s; }
-  .project-card:hover .project-arrow { transform: translate(4px, -4px); color: var(--accent); }
-  .project-card:first-child { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-  .project-chart { height: 160px; position: relative; display: flex; align-items: flex-end; gap: 6px; }
-  .chart-bar { flex: 1; background: rgba(196,241,53,0.15); border-top: 2px solid var(--accent); transition: background 0.3s; }
-  .project-card:hover .chart-bar { background: rgba(196,241,53,0.22); }
-
-  #about { border-top: 1px solid var(--border); padding: 120px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-  .about-left h2 { margin-bottom: 28px; }
-  .about-body { color: var(--muted); font-size: 15px; line-height: 1.9; margin-bottom: 40px; }
-  .experience-list { list-style: none; }
-  .exp-item { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: start; }
-  .exp-year { font-size: 11px; color: var(--muted); width: 60px; padding-top: 3px; }
-  .exp-role { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-  .exp-company { font-size: 12px; color: var(--accent); }
-  .skills-section h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 28px; letter-spacing: -0.3px; }
-  .skill-bar-group { margin-bottom: 16px; }
-  .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; }
-  .skill-bar-label { color: var(--text); }
-  .skill-bar-pct { color: var(--muted); }
-  .skill-bar-track { height: 2px; background: var(--border); overflow: hidden; }
-  .skill-bar-fill { height: 100%; background: var(--accent); transform-origin: left; animation: barGrow 1.5s ease both; animation-play-state: paused; }
-  .skill-bar-fill.accent2 { background: var(--accent2); }
-  .skill-bar-fill.accent3 { background: var(--accent3); }
-  .skills-section.visible .skill-bar-fill { animation-play-state: running; }
-  @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-
-  /* ─────────────────────────────────────
-     PHOTOS
-  ───────────────────────────────────── */
-  #photos { border-top: 1px solid var(--border); padding: 120px 80px; }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    background: var(--border);
+  /* ===== SKILLS ===== */
+  .skillgrid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:28px;}
+  .skillgroup h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--ink-faint); margin-bottom:12px;
   }
+  .skillgroup .chiprow{margin-top:0;}
 
-  /* Each tile */
-  .photo-item {
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: var(--surface);
-    cursor: zoom-in;
-    display: block;
-  }
-
-  /* Photo fills tile */
-  .photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease, filter 0.4s ease;
-    filter: grayscale(10%);
-  }
-  .photo-item:hover img {
-    transform: scale(1.06);
-    filter: grayscale(0%);
-  }
-
-  /* ── LOCATION LABEL — always visible at bottom ── */
-  .photo-label {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    /* Dark gradient scrim so text pops over any image */
-    background: linear-gradient(
-      to top,
-      rgba(5, 5, 12, 0.95) 0%,
-      rgba(5, 5, 12, 0.6)  40%,
-      transparent          100%
-    );
-    padding: 32px 12px 10px;
-    display: flex;
-    align-items: flex-end;
-    gap: 5px;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  /* ◎ pin icon */
-  .photo-label::before {
-    content: '◎';
-    font-size: 9px;
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-bottom: 2px;
-    line-height: 1;
-  }
-
-  .photo-label-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 0;
-  }
-
-  .photo-label-name {
-    font-size: 12px;
-    font-family: 'DM Mono', monospace;
-    font-weight: 500;
-    color: #ffffff;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.3;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-  }
-
-  .photo-label-sub {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 0.06em;
-    line-height: 1.2;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-  }
-
-  /* LIGHTBOX */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(5, 5, 12, 0.96);
-    z-index: 200;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    gap: 16px;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 90vw; max-height: 80vh; object-fit: contain; box-shadow: 0 40px 120px rgba(0,0,0,0.9); }
-  .lightbox-loc {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    color: var(--text);
-    letter-spacing: 0.03em;
-  }
-  .lightbox-loc::before { content: '◎'; color: var(--accent); font-size: 11px; }
-  .lightbox-loc-sub { color: var(--muted); font-size: 11px; }
-  .lightbox-close { position: fixed; top: 24px; right: 32px; font-size: 28px; color: var(--muted); cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.2s; }
-  .lightbox-close:hover { color: var(--text); }
-
-  #contact { border-top: 1px solid var(--border); padding: 120px 80px; text-align: center; }
-  #contact h2 { font-size: clamp(48px, 8vw, 100px); letter-spacing: -3px; margin-bottom: 24px; color: var(--text); }
-  #contact h2 em { color: var(--accent); font-style: italic; }
-  .contact-sub { color: var(--muted); font-size: 15px; max-width: 400px; margin: 0 auto 48px; line-height: 1.8; }
-  .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-  .contact-link { display: flex; align-items: center; gap: 8px; padding: 12px 28px; border: 1px solid var(--border); color: var(--muted); text-decoration: none; font-size: 13px; transition: all 0.2s; }
-  .contact-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(196,241,53,0.04); }
-
-  footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 80px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
-  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  .cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; mix-blend-mode: difference; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 100px 24px 60px; border-right: none; border-bottom: 1px solid var(--border); }
-    .hero-right { padding: 40px 24px 60px; }
-    #projects { padding: 80px 24px; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card:first-child { grid-column: span 1; grid-template-columns: 1fr; }
-    .project-chart { display: none; }
-    #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
-    #contact { padding: 80px 24px; }
-    #photos { padding: 80px 24px; }
-    nav { padding: 16px 20px; }
-    .nav-links { gap: 18px; }
-    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
-    .scroll-indicator { left: 24px; }
-    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-
-    /* 2-column grid on tablet */
-    .photo-grid { grid-template-columns: 1fr 1fr; }
-    /* Slightly taller tiles on mobile so labels don't crowd the image */
-    .photo-item { aspect-ratio: 3/4; }
-    .photo-label-name { font-size: 13px; }
-    .photo-label-sub  { font-size: 11px; }
-  }
-
-  @media (max-width: 480px) {
-    /* Single column on small phones */
-    .photo-grid { grid-template-columns: 1fr; }
-    .photo-item { aspect-ratio: 4/3; }
-    /* Hide middle nav items, keep CTA visible */
-    .nav-links li:not(:last-child) { display: none; }
-  }
+  /* ===== FOOTER / CONTACT ===== */
+  footer{padding:64px 0 48px;}
+  .contact-grid{display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:28px;}
+  footer h2{font-size:1.6rem; font-weight:600; margin-bottom:10px;}
+  footer p{color:var(--ink-dim); max-width:42ch; margin-bottom:22px;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:0.9rem;}
+  .contact-links a{text-decoration:none; color:var(--ink-dim); display:flex; align-items:center; gap:8px;}
+  .contact-links a:hover{color:var(--amber);}
+  .foot-note{margin-top:56px; padding-top:22px; border-top:1px solid var(--line); font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ink-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">RB<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#photos">Photos</a></li>
-    <li><a href="#contact" class="nav-cta">Get in touch →</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Entry-Level Data Scientist · Transportation Systems</div>
-    <h1>Learning to move <em>data</em> forward</h1>
-    <p class="hero-desc">Graduate research assistant at the University of Hawaiʻi at Mānoa, applying data science and machine learning to transportation systems problems. Actively seeking my first full-time role.</p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">View my work</a>
-      <a href="#about" class="btn-ghost">About me →</a>
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span> Rajan Bhusal</div>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contact">Contact</a>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="stat-grid">
-      <div class="stat-item"><div class="stat-num">MS</div><div class="stat-label">Civil Engineering, UH Mānoa</div></div>
-      <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">Years in Research</div></div>
-      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Academic projects</div></div>
-      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Conference paper</div></div>
-    </div>
-    <div class="skills-row">
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">PyTorch</span>
-      <span class="skill-tag">GTFS</span>
-      <span class="skill-tag">SUMO</span>
-      <span class="skill-tag">OSMnx</span>
-      <span class="skill-tag">PostGIS</span>
-      <span class="skill-tag">Spark</span>
-      <span class="skill-tag">dbt</span>
-      <span class="skill-tag">Airflow</span>
-      <span class="skill-tag">HERE API</span>
-      <span class="skill-tag">OpenStreetMap</span>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    Scroll to explore
-  </div>
-</section>
+  </nav>
+</header>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header fade-up">
+<section class="hero">
+  <div class="wrap hero-grid">
     <div>
-      <div class="section-num">// 01 — academic work</div>
-      <h2>Projects</h2>
+      <span class="eyebrow">MS · Civil &amp; Environmental Engineering · University of Hawai&#8217;i at Mānoa</span>
+      <h1>Modeling how <em>cyberthreats</em> propagate through traffic networks.</h1>
+      <p class="lede">I study the intersection of transportation infrastructure and cybersecurity risk — building CVE-driven datasets of transportation cyberthreats and translating them into network-scale traffic outcomes through simulation.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#research">See the research →</a>
+        <a class="btn btn-ghost" href="mailto:rajanb@hawaii.edu">Get in touch</a>
+      </div>
     </div>
-    <a href="#" class="section-link">All projects →</a>
+    <div class="diagram-frame">
+      <div class="cap">
+        <span>FIG. 01 — SIGNALIZED INTERSECTION, THREAT MODEL</span>
+        <span id="signal-phase-label">PHASE: N-S GO</span>
+      </div>
+      <svg class="intersection" viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- roads -->
+        <rect x="0" y="140" width="400" height="60" fill="#23282F"/>
+        <rect x="170" y="0" width="60" height="340" fill="#23282F"/>
+        <!-- lane markings -->
+        <g stroke="#40474F" stroke-width="2" stroke-dasharray="10 8">
+          <line x1="0" y1="170" x2="400" y2="170"/>
+          <line x1="200" y1="0" x2="200" y2="340"/>
+        </g>
+        <!-- RSU / roadside unit -->
+        <g transform="translate(272,96)">
+          <line x1="0" y1="0" x2="0" y2="34" stroke="var(--blue)" stroke-width="2"/>
+          <circle cx="0" cy="0" r="5" fill="var(--blue)"/>
+          <circle cx="0" cy="0" r="11" fill="none" stroke="var(--blue)" stroke-width="1" opacity="0.5"/>
+          <text x="10" y="4" class="mono" font-size="9" fill="#9BA1A8">RSU-14</text>
+        </g>
+        <!-- signal heads at 4 corners -->
+        <g id="sig-ns-1" transform="translate(148,112)">
+          <rect x="-9" y="-26" width="18" height="46" rx="3" fill="#0F1215" stroke="#333A42"/>
+          <circle class="sig-light" data-role="red" cx="0" cy="-16" r="5" fill="#3a2320"/>
+          <circle class="sig-light" data-role="amber" cx="0" cy="-2" r="5" fill="#3a3020"/>
+          <circle class="sig-light" data-role="green" cx="0" cy="12" r="5" fill="#204030"/>
+        </g>
+        <g id="sig-ns-2" transform="translate(252,228)">
+          <rect x="-9" y="-26" width="18" height="46" rx="3" fill="#0F1215" stroke="#333A42"/>
+          <circle class="sig-light" data-role="red" cx="0" cy="-16" r="5" fill="#3a2320"/>
+          <circle class="sig-light" data-role="amber" cx="0" cy="-2" r="5" fill="#3a3020"/>
+          <circle class="sig-light" data-role="green" cx="0" cy="12" r="5" fill="#204030"/>
+        </g>
+        <g id="sig-ew-1" transform="translate(228,112) rotate(90)">
+          <rect x="-9" y="-26" width="18" height="46" rx="3" fill="#0F1215" stroke="#333A42"/>
+          <circle class="sig-light" data-role="red" cx="0" cy="-16" r="5" fill="#3a2320"/>
+          <circle class="sig-light" data-role="amber" cx="0" cy="-2" r="5" fill="#3a3020"/>
+          <circle class="sig-light" data-role="green" cx="0" cy="12" r="5" fill="#204030"/>
+        </g>
+        <g id="sig-ew-2" transform="translate(148,228) rotate(90)">
+          <rect x="-9" y="-26" width="18" height="46" rx="3" fill="#0F1215" stroke="#333A42"/>
+          <circle class="sig-light" data-role="red" cx="0" cy="-16" r="5" fill="#3a2320"/>
+          <circle class="sig-light" data-role="amber" cx="0" cy="-2" r="5" fill="#3a3020"/>
+          <circle class="sig-light" data-role="green" cx="0" cy="12" r="5" fill="#204030"/>
+        </g>
+        <!-- CVE annotation callout -->
+        <g transform="translate(20,20)">
+          <rect x="0" y="0" width="118" height="34" rx="2" fill="#1D2228" stroke="var(--red)" stroke-opacity="0.5"/>
+          <text x="9" y="14" class="mono" font-size="9" fill="var(--red)">CVE-2024-XXXX</text>
+          <text x="9" y="26" class="mono" font-size="8" fill="#9BA1A8">EPSS 0.71 · controller</text>
+        </g>
+        <!-- vehicle-hour delay tag -->
+        <g transform="translate(258,270)">
+          <rect x="0" y="0" width="122" height="34" rx="2" fill="#1D2228" stroke="var(--line-strong)"/>
+          <text x="9" y="14" class="mono" font-size="9" fill="#ECEAE2">POLARIS sim</text>
+          <text x="9" y="26" class="mono" font-size="8" fill="#9BA1A8">Δ vehicle-hrs delay</text>
+        </g>
+      </svg>
+    </div>
   </div>
-
-  <div class="projects-grid fade-up">
-    <div class="project-card">
-      <div>
-        <div class="project-category">Featured · MS Thesis · 2026</div>
-        <div class="project-title">Data Mining Approach to Understanding Transportation Cybersecurity</div>
-        <div class="project-desc">Thesis research using NLP techniques like topic modeling, entity recognition and sentiment analysis to analyse patterns and inform decision making for transportation systems security.</div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <span class="stack-tag">Python</span>
-            <span class="stack-tag">Natural Language Processing</span>
-            <span class="stack-tag">Web Scraping</span>
-            <span class="stack-tag">Pandas</span>
-          </div>
-          <span class="project-arrow">↗</span>
-        </div>
-      </div>
-      <div class="project-chart" id="chart1"></div>
-    </div>
-
-    <div class="project-card accent2">
-      <div class="project-category">GRA Research · 2025</div>
-      <div class="project-title">Data-Driven Assessments of Cyberthreats on EV Charging Station Networks</div>
-      <div class="project-desc">Analysis of the impacts of cyberthreats on EV Charging Stations. Studied impacts in transportation scale outcomes using traffic simulation.</div>
-      <div class="project-meta">
-        <div class="project-stack">
-          <span class="stack-tag">Pandas</span>
-          <span class="stack-tag">SQL</span>
-          <span class="stack-tag">QGIS</span>
-        </div>
-        <span class="project-arrow">↗</span>
-      </div>
-    </div>
-
-    
-   
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="about-left fade-up">
-    <div class="section-num">// 02 — background</div>
-    <h2>About me</h2>
-    <p class="about-body">I'm a graduate student at the University of Hawaiʻi at Mānoa pursuing an MS in Civil Engineering, with a focus on transportation systems. As a Graduate Research Assistant, I work on real-world problems in traffic simulation, transportation cybersecurity and urban mobility using Python, R, and GIS tools.<br><br>I'm passionate about using data to make transportation more equitable, efficient, and safe — and I'm eager to bring that curiosity and work ethic to my first industry role.</p>
-
-    <ul class="experience-list">
-      <li class="exp-item">
-        <span class="exp-year">2025–</span>
-        <div>
-          <div class="exp-role">Graduate Research Assistant</div>
-          <div class="exp-company">University of Hawaiʻi at Mānoa — Dept. of Civil, Environmental and Construction Engineering</div>
-        </div>
-      </li>
-      <li class="exp-item">
-        <span class="exp-year">2025–</span>
-        <div>
-          <div class="exp-role">M.S. Civil Engineering (in progress)</div>
-          <div class="exp-company">University of Hawaiʻi at Mānoa</div>
-        </div>
-      </li>
-      <li class="exp-item">
-        <span class="exp-year">2018–23</span>
-        <div>
-          <div class="exp-role">B.S. Civil Engineering</div>
-          <div class="exp-company">Tribhuvan University, Kathmandu, Nepal</div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="skills-section fade-up" id="skillsSection">
-    <h3>Technical proficiency</h3>
-
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">Python (Pandas, scikit-learn, PyTorch)</span><span class="skill-bar-pct">78%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">Geospatial Analysis (GeoPandas, QGIS)</span><span class="skill-bar-pct">75%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">Machine Learning & Model Evaluation</span><span class="skill-bar-pct">72%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill accent2" style="width:72%"></div></div>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">SQL & Data Wrangling</span><span class="skill-bar-pct">80%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">R & Statistical Analysis</span><span class="skill-bar-pct">70%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill accent3" style="width:70%"></div></div>
-    </div>
-    <div class="skill-bar-group">
-      <div class="skill-bar-header"><span class="skill-bar-label">Data Visualization (Tableau, Matplotlib)</span><span class="skill-bar-pct">74%</span></div>
-      <div class="skill-bar-track"><div class="skill-bar-fill accent2" style="width:74%"></div></div>
-    </div>
-
-    <div style="margin-top:32px;padding:0;border:1px solid var(--border);overflow:hidden">
-      <div style="padding:16px 24px;background:rgba(196,241,53,0.06);border-bottom:1px solid var(--border);font-size:11px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;">Domain Expertise — Transportation Systems</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)">
-        <div style="background:var(--surface);padding:16px 20px">
-          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Public Transit</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">GTFS data, ridership modeling, schedule analysis, transit equity</div>
-        </div>
-        <div style="background:var(--surface);padding:16px 20px">
-          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Road Safety</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">Crash data analysis, risk mapping, geospatial hotspot detection</div>
-        </div>
-        <div style="background:var(--surface);padding:16px 20px">
-          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Urban Mobility</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">Bikeshare, mode-choice, accessibility &amp; equity analysis</div>
-        </div>
-        <div style="background:var(--surface);padding:16px 20px">
-          <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px">Cybersecurity</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.6">NLP-based threat analysis, EV infrastructure risk, traffic simulation</div>
-        </div>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm an <strong>MS student in Civil Engineering at the University of Hawai&#8217;i at Mānoa</strong>, working at the intersection of transportation systems and cybersecurity risk. My thesis, <strong>&#8220;Understanding and Predicting Risks of Cyberthreats in Transportation Systems,&#8221;</strong> builds a structured, multi-modal dataset of transportation cyberthreats and pairs it with POLARIS-based dynamic traffic simulation to trace how a vulnerability in a single component — a signal controller, an EV charger, a roadside unit — becomes a network-scale delay.</p>
+        <p>Before Hawai&#8517;i, I completed my <strong>Bachelor of Engineering in Civil Engineering at Tribhuvan University</strong> in Kathmandu, Nepal, and worked as a site engineer on a highway project before moving into research.</p>
+        <p>Outside the thesis, I'm interested in <strong>game theory, discrete choice modeling, and operations research</strong> — and how they can formalize risk and decision-making in infrastructure systems more broadly.</p>
       </div>
-    </div>
-
-    <div style="margin-top:24px;padding:24px;background:var(--surface);border:1px solid var(--border)">
-      <div style="font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Currently learning</div>
-      <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px">Graph Neural Networks for Transport</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7">Exploring PyTorch Geometric for road network modeling and spatiotemporal traffic prediction as part of my thesis work.</div>
+      <div class="factbox">
+        <dl>
+          <dt>Institution</dt>
+          <dd>University of Hawai&#8517;i at Mānoa</dd>
+          <dt>Program</dt>
+          <dd>MS, Civil &amp; Environmental Engineering (2025–2026)</dd>
+          <dt>Advisor</dt>
+          <dd>Dr. Roger B. Chen</dd>
+          <dt>Role</dt>
+          <dd>Graduate Assistant</dd>
+          <dt>Funding</dt>
+          <dd>Full-tuition Graduate Assistantship, UH Mānoa</dd>
+          <dt>Prior Education</dt>
+          <dd>B.E. Civil Engineering, Tribhuvan University, Nepal</dd>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PHOTOS -->
-<section id="photos">
-  <div class="section-header fade-up">
-    <div>
-      <div class="section-num">// 03 — life outside the terminal</div>
-      <h2>Photos</h2>
-    </div>
-  </div>
+<section id="research">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2>Research</h2></div>
+    <p class="section-sub">Two threads: a thesis-scale dataset and simulation pipeline, and an applied study of EV charging station exposure.</p>
 
-  <div class="photo-grid fade-up">
-
-    <div class="photo-item">
-      <img src="rajan.jpg" alt="Honolulu, Hawaii">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Honolulu, Hawaii</span>
-          <span class="photo-label-sub">United States · 2025</span>
+    <div class="research-card">
+      <span class="research-tag mono">THESIS<br>2025–26</span>
+      <div>
+        <span class="badge caution" style="margin-bottom:10px;"><span class="light"></span>In progress</span>
+        <h3>Understanding and Predicting Risks of Cyberthreats in Transportation Systems</h3>
+        <p>A comprehensive dataset of cybersecurity threats spanning transportation modes and infrastructure assets — signal controllers, roadside units, EV charging equipment — sourced from vendor advisories, the NVD, CISA, and Exploit-DB. Component-level exploitation risk is estimated with a hazard-based risk model, then translated into network-scale outcomes (delay, disruption) using POLARIS traffic simulation on Oahu and Maui networks. Work has been presented at the Argonne POLARIS User Group Meeting and the UH Indo-Pacific Cybersecurity Innovation Forum.</p>
+        <div class="chiprow">
+          <span class="chip">POLARIS</span>
+          <span class="chip">CVE / NVD / CISA</span>
+          <span class="chip">Hazard-based risk modeling</span>
+          <span class="chip">Oahu &amp; Maui networks</span>
         </div>
       </div>
     </div>
 
-    <div class="photo-item">
-      <img src="hawaii1.jpg" alt="Honolulu, Hawaii">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Honolulu, Hawaii</span>
-          <span class="photo-label-sub">United States · 2025</span>
+    <div class="research-card">
+      <span class="research-tag mono">TRB 2026<br>POSTER</span>
+      <div>
+        <span class="badge go" style="margin-bottom:10px;"><span class="light"></span>Presented</span>
+        <h3>EV Charging Station Cyberthreats &amp; Service Levels</h3>
+        <p>A data-driven assessment of how cyberthreats to electric vehicle charging infrastructure affect station-level service — presented as a poster at the Transportation Research Board Annual Meeting 2026 in Washington, D.C., and now under revision for the <em>Transportation Research Record</em> as a full paper with Dr. Roger Chen, Diogo Garcia, Mahdi Fazelnia, and Mehdi Mirakhorli.</p>
+        <div class="chiprow">
+          <span class="chip">EV charging infrastructure</span>
+          <span class="chip">Open-source intelligence</span>
+          <span class="chip">Service-level impact</span>
         </div>
       </div>
     </div>
 
-    <div class="photo-item">
-      <img src="hawaii2.jpg" alt="Honolulu, Hawaii">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Honolulu, Hawaii</span>
-          <span class="photo-label-sub">United States · 2025</span>
-        </div>
+    <div class="research-card">
+      <span class="research-tag mono">ONGOING</span>
+      <div>
+        <span class="badge hold" style="margin-bottom:10px;"><span class="light"></span>Early stage</span>
+        <h3>Estimating Player Utility Functions in a Game-Theoretic Framework</h3>
+        <p>A methodological framework, with Dr. Roger Chen, for estimating the utility functions of players in a game — extending my interest in game theory and discrete choice modeling toward strategic behavior in infrastructure and network settings.</p>
       </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="manaslu2.JPG" alt="Manaslu Circuit Trek">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Manaslu Circuit Trek</span>
-          <span class="photo-label-sub">Nepal · 2024</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="khopra1.jpg" alt="Khopra Ridge Trek">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Khopra Ridge Trek</span>
-          <span class="photo-label-sub">Nepal · 2023</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="photo-item">
-      <img src="khopra2.jpg" alt="Khopra Ridge Trek">
-      <div class="photo-label">
-        <div class="photo-label-text">
-          <span class="photo-label-name">Khopra Ridge Trek</span>
-          <span class="photo-label-sub">Nepal · 2023</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">✕</button>
-  <img src="" id="lightboxImg" alt="">
-  <div class="lightbox-loc">
-    <span id="lightboxName"></span>
-    <span class="lightbox-loc-sub" id="lightboxSub"></span>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="fade-up">
-    <div class="section-num" style="display:inline-block;margin-bottom:16px">// 04 — get in touch</div>
-    <h2>Let's <em>work</em><br>together</h2>
-    <p class="contact-sub">Looking for entry-level data science roles in transportation and tech. Open to US-based positions.</p>
-    <div class="contact-links">
-      <a href="mailto:rajanb@hawaii.edu" class="contact-link">✉ rajanb@hawaii.edu</a>
-      <a href="https://linkedin.com/in/rbhusal" class="contact-link">⌁ LinkedIn</a>
-      <a href="https://github.com/rajanbhusal" class="contact-link">⌂ GitHub</a>
-      <a href="#" class="contact-link">↓ Resume PDF</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <span>© 2026 Rajan Bhusal</span>
-  <span>Honolulu, HI · Open to remote and US-based positions</span>
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Publications &amp; Presentations</h2></div>
+
+    <div class="pub">
+      <span class="pub-idx mono">[1]</span>
+      <div>
+        <div class="pub-title">Data-Driven Assessments of Electric Vehicle Charging Station Cyberthreats on Station Service Levels</div>
+        <div class="pub-meta">Chen, R.B., <strong style="color:var(--ink);">Bhusal, R.*</strong>, Garcia, D., Fazelnia, M., &amp; Mirakhorli, M. (2026). <span class="pub-venue">Transportation Research Board Annual Meeting 2026.</span></div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-idx mono">[2]</span>
+      <div>
+        <div class="pub-title">Investigating Cyberthreats in Transportation Systems: Data and Modeling Challenges</div>
+        <div class="pub-meta"><strong style="color:var(--ink);">Bhusal, R.*</strong>, Xu, P., &amp; Chen, R.B. (2026). <span class="pub-venue">Argonne POLARIS User Group Meeting 2026.</span></div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-idx mono">[3]</span>
+      <div>
+        <div class="pub-title">Cyberthreats and Traffic Networks: Data and Modeling Challenges for Infrastructure Assets</div>
+        <div class="pub-meta">Chen, R.B. &amp; <strong style="color:var(--ink);">Bhusal, R.</strong> (2026). <span class="pub-venue">UH Indo-Pacific Cybersecurity Innovation Forum.</span></div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-idx mono">[4]</span>
+      <div>
+        <div class="pub-title">Investigating Cyberthreats and Attacks to Electric Vehicle Charging Station Networks with Open-Source Intelligence</div>
+        <div class="pub-meta"><strong style="color:var(--ink);">Bhusal, R.</strong>, Garcia, D., Chen, R.B. &amp; Mirakhorli, M. (2025). <span class="pub-venue">Argonne POLARIS User Group Meeting 2025.</span></div>
+      </div>
+    </div>
+    <div class="pub">
+      <span class="pub-idx mono">[5]</span>
+      <div>
+        <div class="pub-title">Vulnerability of Traffic Management Systems Under Cyberattacks</div>
+        <div class="pub-meta">Chen, R.B., <strong style="color:var(--ink);">Bhusal, R.</strong>, Garcia, D., Fazelnia, M., &amp; Mirakhorli, M. (2026). <span class="pub-venue">Technical report, US DOT Tier-1 University Transportation Center.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>Timeline</h2></div>
+    <div class="tl">
+      <div class="tl-item">
+        <span class="tl-year">2025 – 2026</span>
+        <h4>Graduate Assistant, University of Hawai&#8517;i at Mānoa</h4>
+        <p>MS thesis on transportation cyberthreat risk under Dr. Roger Chen; TRB 2026 poster; POLARIS User Group presentations.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2023</span>
+        <h4>Reviewer, TRB Annual Meeting 2026</h4>
+        <p>Professional service reviewing submissions for the Transportation Research Board.</p>
+      </div>
+      <div class="tl-item dim">
+        <span class="tl-year">2023 – 2024</span>
+        <h4>Site Engineer, Midhill Highway Project — Dailekh, Nepal</h4>
+        <p>Prepared running bills, variation orders, and lab reports; led drivers, operators, and supervisors on flexible and rigid pavement construction.</p>
+      </div>
+      <div class="tl-item dim">
+        <span class="tl-year">2023</span>
+        <h4>Lecturer, PI Academy — Kathmandu, Nepal</h4>
+        <p>Taught chemistry to high school students preparing for university entrance exams.</p>
+      </div>
+      <div class="tl-item dim">
+        <span class="tl-year">2018 – 2019</span>
+        <h4>Lecturer, Tulsi Boarding Secondary School — Dang, Nepal</h4>
+        <p>Delivered math and science lectures for middle school students.</p>
+      </div>
+      <div class="tl-item dim">
+        <span class="tl-year">2018 – 2023</span>
+        <h4>B.E. Civil Engineering, Tribhuvan University — Kathmandu, Nepal</h4>
+        <p>Coursework in probability &amp; statistics, numerical methods, computational techniques, and transportation engineering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2>Skills &amp; Recognition</h2></div>
+    <div class="skillgrid">
+      <div class="skillgroup">
+        <h4>Languages</h4>
+        <div class="chiprow"><span class="chip">Python</span><span class="chip">R</span><span class="chip">JavaScript</span></div>
+      </div>
+      <div class="skillgroup">
+        <h4>Frameworks</h4>
+        <div class="chiprow"><span class="chip">PyTorch</span><span class="chip">React</span><span class="chip">Django</span></div>
+      </div>
+      <div class="skillgroup">
+        <h4>Simulation</h4>
+        <div class="chiprow"><span class="chip">POLARIS</span><span class="chip">VISSIM</span><span class="chip">SUMO</span></div>
+      </div>
+      <div class="skillgroup">
+        <h4>Tools</h4>
+        <div class="chiprow"><span class="chip">Git / GitHub</span><span class="chip">LaTeX</span><span class="chip">QGIS</span><span class="chip">AutoCAD</span></div>
+      </div>
+      <div class="skillgroup">
+        <h4>Certifications</h4>
+        <div class="chiprow"><span class="chip">ML Specialization, Coursera</span><span class="chip">Meta Front-End Professional, Coursera</span></div>
+      </div>
+      <div class="skillgroup">
+        <h4>Awards</h4>
+        <div class="chiprow"><span class="chip">UH Graduate Assistantship — full tuition</span><span class="chip">UH Foundation Scholarship</span><span class="chip">Argonne Travel Honorarium</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p>Open to conversations on transportation cybersecurity, risk modeling, and network simulation.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:rajanb@hawaii.edu">✉ rajanb@hawaii.edu</a>
+        <a href="https://linkedin.com/in/rbhusal" target="_blank" rel="noopener">↗ linkedin.com/in/rbhusal</a>
+        <a href="https://rajanbhusal.github.io" target="_blank" rel="noopener">↗ rajanbhusal.github.io</a>
+      </div>
+    </div>
+    <div class="foot-note wrap" style="padding:0;">
+      <span>Rajan Bhusal — Honolulu, Hawai&#8517;i</span>
+      <span>Last updated August 2026</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-  // Cursor
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX - 4 + 'px';
-    cursor.style.top = e.clientY - 4 + 'px';
+  // mobile nav toggle
+  const navtoggle = document.getElementById('navtoggle');
+  const navlinks = document.getElementById('navlinks');
+  navtoggle.addEventListener('click', () => {
+    const open = navlinks.classList.toggle('open');
+    navtoggle.setAttribute('aria-expanded', open);
   });
-  document.querySelectorAll('a, button, .project-card').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
-    el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-  });
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navlinks.classList.remove('open');
+    navtoggle.setAttribute('aria-expanded', 'false');
+  }));
 
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  // signal phase animation for hero diagram
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const phases = [
+    { label: 'PHASE: N-S GO', ns: 'green', ew: 'red' },
+    { label: 'PHASE: N-S CAUTION', ns: 'amber', ew: 'red' },
+    { label: 'PHASE: E-W GO', ns: 'red', ew: 'green' },
+    { label: 'PHASE: E-W CAUTION', ns: 'red', ew: 'amber' },
+  ];
+  const colorMap = {
+    red: { on: '#C1443C', off: '#3a2320' },
+    amber: { on: '#E8A33D', off: '#3a3020' },
+    green: { on: '#4C9A79', off: '#204030' }
+  };
+  const nsHeads = ['#sig-ns-1', '#sig-ns-2'].flatMap(id => Array.from(document.querySelectorAll(id + ' .sig-light')));
+  const ewHeads = ['#sig-ew-1', '#sig-ew-2'].flatMap(id => Array.from(document.querySelectorAll(id + ' .sig-light')));
+  const label = document.getElementById('signal-phase-label');
 
-  const skillsObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.3 });
-  document.querySelectorAll('.skills-section').forEach(el => skillsObserver.observe(el));
-
-  // Lightbox — reads name/sub from .photo-label-text inside same tile
-  const lightbox     = document.getElementById('lightbox');
-  const lightboxImg  = document.getElementById('lightboxImg');
-  const lightboxName = document.getElementById('lightboxName');
-  const lightboxSub  = document.getElementById('lightboxSub');
-
-  document.querySelectorAll('.photo-item img').forEach(img => {
-    img.addEventListener('click', () => {
-      const tile = img.closest('.photo-item');
-      lightboxImg.src           = img.src;
-      lightboxName.textContent  = tile.querySelector('.photo-label-name')?.textContent || '';
-      lightboxSub.textContent   = tile.querySelector('.photo-label-sub')?.textContent  || '';
-      lightbox.classList.add('open');
+  function applyPhase(phase){
+    label.textContent = phase.label;
+    ['red','amber','green'].forEach(role => {
+      nsHeads.filter(el => el.dataset.role === role).forEach(el => {
+        el.setAttribute('fill', role === phase.ns ? colorMap[role].on : colorMap[role].off);
+      });
+      ewHeads.filter(el => el.dataset.role === role).forEach(el => {
+        el.setAttribute('fill', role === phase.ew ? colorMap[role].on : colorMap[role].off);
+      });
     });
-  });
-  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+  }
 
-  // Chart bars
-  const chart = document.getElementById('chart1');
-  [40,65,45,80,60,72,55,90,68,85,75,95].forEach(v => {
-    const bar = document.createElement('div');
-    bar.className = 'chart-bar';
-    bar.style.height = v + '%';
-    chart.appendChild(bar);
-  });
+  applyPhase(phases[0]);
+  if (!reduceMotion){
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % phases.length;
+      applyPhase(phases[i]);
+    }, 2200);
+  }
 </script>
+
 </body>
 </html>
